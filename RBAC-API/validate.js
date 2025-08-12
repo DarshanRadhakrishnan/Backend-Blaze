@@ -9,7 +9,7 @@ const validate=async (req,res,next)=>{
         }
         try{
             const decoded=jwt.verify(token,process.env.SECRET_CODE)
-            req.user=decoded
+            req.user=decoded//this decode is ntg but the payload that we set when creation of the tooken 
             console.log("The required user is  ")
             next()//the calling of next here is highly important as this is the place where can execute the next function in the route
         }catch(err){
@@ -20,3 +20,4 @@ const validate=async (req,res,next)=>{
     }
 }
 module.exports=validate
+
